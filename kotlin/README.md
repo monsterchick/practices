@@ -48,5 +48,5 @@ https://youtube.com/playlist?list=PLM-eiVIFVQQaptX31f4hpwJtS2q-49HHb
 | 40 kotlin面向对象 单例模式 | ✓ |   |
 | 41 kotlin面向对象 枚举 | ✓ |   |
 | 42 kotlin面向对象 印章类 | ✓ |   |
-| 43 kotlin课程计划 | ✓ | ✓ |
+| 43 kotlin课程计划 | ✓ |   |   |
 
