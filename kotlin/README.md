@@ -6,7 +6,7 @@ https://youtube.com/playlist?list=PLM-eiVIFVQQaptX31f4hpwJtS2q-49HHb
 | 27 | 28 |
 
 | 标题 | 进度 | 加星 |
-| --- | --- | --- |
+| --- | :---: | :---: |
 | 01 kotlin课程简介1 | ✓ |  |
 | 02 kotlin学习方法 | ✓ |   |
 | 04 kotlin你好世界 | ✓ |   |
