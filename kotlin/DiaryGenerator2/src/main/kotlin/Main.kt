@@ -13,10 +13,11 @@ fun numToWord(num:Int):String{
         3 -> "three"
         4 -> "four"
         5 -> "five"
-        else -> "too much"
+        else -> "too many"
     }
     return result
 }
 fun main() {
-    diaryGenerator("fxck")
+    diaryGenerator("fxcku")
+    diaryGenerator("fxckuuuu")
 }
