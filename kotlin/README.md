@@ -1,9 +1,9 @@
 # tutorial
 https://youtube.com/playlist?list=PLM-eiVIFVQQaptX31f4hpwJtS2q-49HHb
 
-| done | todo |
-| --- | --- |
-| 27 | 28 |
+| date | done | todo |
+| --- | --- | --- |
+| 2023-4-30 | 27 | 28 |
 
 | 标题 | 进度 | 加星 |
 | --- | :---: | :---: |
