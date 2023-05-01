@@ -3,7 +3,8 @@ https://youtube.com/playlist?list=PLM-eiVIFVQQaptX31f4hpwJtS2q-49HHb
 
 | date | done | todo |
 | --- | --- | --- |
-| 2023-4-30 | 27 | 28 |
+| 2023-4-30 |28 | 29 |
+| 2023-5-1 |28 | 29 |
 
 | 标题 | 进度 | 加星 |
 | --- | :---: | :---: |
