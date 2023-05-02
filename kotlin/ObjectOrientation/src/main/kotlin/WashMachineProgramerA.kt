@@ -28,11 +28,13 @@ class WashMachineProgramerA(var module:String, var size:Int) {
                 1 -> {
                     println("放水。。。")
                     println("轻柔模式，发动机转速慢")
+                    setMotorSpeed(100)
                     println("洗完啦")
                 }
                 2 -> {
                     println("放水。。。")
                     println("狂揉模式，发动机转速快")
+                    setMotorSpeed(500)
                     println("洗完啦")
                 }
                 else -> {
@@ -40,5 +42,9 @@ class WashMachineProgramerA(var module:String, var size:Int) {
                 }
             }
         }
+    }
+    //private 关键字使该函数被封装，其他程序员无法调用
+    private fun setMotorSpeed(speed:Int){
+        println("当前发动机转速为 ${speed}圈/秒")
     }
 }

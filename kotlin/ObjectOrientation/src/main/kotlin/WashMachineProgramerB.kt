@@ -10,7 +10,7 @@ fun main() {
     //关门
     washMachine.closeDoor()
     //选择模式
-    washMachine.selectMode(3)
+    washMachine.selectMode(1)
     //开始洗衣服程序
     washMachine.startWash()
 }
