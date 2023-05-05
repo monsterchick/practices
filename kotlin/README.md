@@ -2,8 +2,10 @@
 https://youtube.com/playlist?list=PLM-eiVIFVQQaptX31f4hpwJtS2q-49HHb
 
 | date | done | todo |
-| --- | --- | --- |
-| 2023-4-30 | 27 | 28 |
+| :---: | :---: | :---: |
+| 2023-4-30 | 28 | 29 |
+| 2023-5-1 | 38 | 39 |
+| 2023-5-1 | 43 |  |
 
 | 标题 | 进度 | 加星 |
 | --- | :---: | :---: |
@@ -40,13 +42,13 @@ https://youtube.com/playlist?list=PLM-eiVIFVQQaptX31f4hpwJtS2q-49HHb
 | 32 kotlin面向对象实战 洗衣机 | ✓ |   |
 | 33 kotlin面向对象实战 洗衣机升级 | ✓ |   |
 | 34 kotlin面向对象实战 封装 | ✓ |   |
-| 35 kotlin面向对象 继承open和override | ✓ |   |
-| 36 kotlin抽象类和继承 | ✓ |   |
+| 35 kotlin面向对象 继承open和override | ✓ | ★ |
+| 36 kotlin抽象类和继承 | ✓ | ★ |
 | 37 kotlin面向对象 多态 | ✓ |   |
-| 38 kotlin面向对象 抽象类和接口 | ✓ |   |
+| 38 kotlin面向对象 抽象类和接口 | ✓ | ★ |
 | 39 kotlin面向对象 代理和委托 | ✓ |   |
-| 40 kotlin面向对象 单例模式 | ✓ |   |
+| 40 kotlin面向对象 单例模式 | ✓ | ★ |
 | 41 kotlin面向对象 枚举 | ✓ |   |
-| 42 kotlin面向对象 印章类 | ✓ |   |
-| 43 kotlin课程计划 | ✓ |   |   |
+| 42 kotlin面向对象 印章类 | ✓ | ？ |
+| 43 kotlin课程计划 | ✓ |   |
 
