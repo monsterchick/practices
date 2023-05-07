@@ -3,9 +3,10 @@ import json
 py_obj = {
     'key1': 'val1',
     'key2': {'subkey2': 'sub val2'},
-    'key3': ['val4', 'val5,val6']
+    'key3': ['val4', 'val5', 'val6']
 }
 
+j_str = '{"key1": "val1", "key2": {"subkey2": "sub val2"}, "key3": ["val4", "val5,val6"]}'
 
 def dumps():
     # 将Python对象转换为JSON格式字符串 | 可以通过JSON Validator的测试
@@ -47,11 +48,9 @@ def load():
 print_result(dumps()[0], dumps()[1])
 
 # 打印转换后的Python对象
-json_str = dumps()[1]
-print_result(loads(json_str)[0], loads(json_str)[1])
+print_result(loads(j_str)[0], loads(j_str)[1])
 
-# 把Python对象写入JSON文件
-# 用f.read()读取数据
+# 把Python对象写入JSON文件 | 用f.read()读取数据
 dump(py_obj)
 
 # 读取JSON文件的的数据 | 等同于f.read()
