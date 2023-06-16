@@ -19,7 +19,6 @@ public class Main {
     void init(){
         GridBagConstraints textFieldConstraints = new GridBagConstraints();
         GridBagConstraints buttonsConstraints = new GridBagConstraints();
-        GridBagConstraints constraints = new GridBagConstraints();
         List<String> buttonList = new ArrayList<>(Arrays.asList("AC", "+/-", "%", "➗", "7", "8", "9", "✖", "4","5","6", "➖", "1", "2", "3", "➕","0", ".", "🟰"));
         int numRows = 5;    // y
         int numCols = 4;    // x
@@ -31,6 +30,7 @@ public class Main {
         textFieldConstraints.gridx = 0;
         textFieldConstraints.gridy = 0;
         textFieldConstraints.gridwidth = 4;
+        textFieldConstraints.fill = GridBagConstraints.BOTH;
         mainContainer.add(new JTextField("I am text"), textFieldConstraints);
 
         // 添加按钮
@@ -43,24 +43,24 @@ public class Main {
                     int y = (buttonIndex / maxButtonsPerRow) + 1;
 
                     if (x == 1 && y == 5){
-                        GridBagConstraints buttonZeroConstraint = new GridBagConstraints();
-                        buttonsConstraints.gridx = x;
-                        buttonsConstraints.gridy = y;
-                        buttonZeroConstraint.gridwidth = 2;
-                        buttonZeroConstraint.gridheight = 1;
-                        buttonZeroConstraint.fill = GridBagConstraints.HORIZONTAL;
-                        mainContainer.add(button, buttonZeroConstraint);
+                        buttonsConstraints.gridwidth = 2;
+                        buttonsConstraints.fill = GridBagConstraints.BOTH;
+                    } else if (x == 2 && y == 5) {
+                        x = 3;
+                        buttonsConstraints.gridwidth = 1;
+                        System.out.println(buttonName);
+
+                    } else if (x == 3 && y == 5) {
+                        x = 4;
+                        buttonsConstraints.gridwidth = 1;
+                        System.out.println(buttonName);
                     }
-                    if (x == 2 && y == 5 || x == 3 && y == 5) {
-                        x += 1;
-                    }
+
                     buttonsConstraints.gridx = x;    // return 0 1 2 3 0 1 2 3 0 1 2 3...
                     buttonsConstraints.gridy = y;    // return 1111 2222 3333 4444 5555
                     mainContainer.add(button, buttonsConstraints);
                     System.out.println("(" + x + "," + y + ")");
-
                     buttonIndex++;
-
                 }
             }
         }
