@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     JFrame jframe = new JFrame(); // 主容器
@@ -7,17 +10,60 @@ public class Main {
     void createFrame(){
         jframe.setTitle("Calculator");
         jframe.setSize(330,380);
-        jframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jframe.setLocationRelativeTo(null);
         mainContainer = jframe.getContentPane();
-        mainContainer.setLayout(new GridBagLayout());
+        mainContainer.setLayout(new GridBagLayout()); // 採用網格組佈局
+        jframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     void init(){
-        GridBagConstraints textField = new GridBagConstraints();
-        mainContainer.add(new JTextField(), textField);
-//        mainContainer.add(new JButton("btn1"),gdShow);
+        GridBagConstraints textFieldConstraints = new GridBagConstraints();
+        GridBagConstraints buttonsConstraints = new GridBagConstraints();
+        GridBagConstraints constraints = new GridBagConstraints();
+        List<String> buttonList = new ArrayList<>(Arrays.asList("AC", "+/-", "%", "➗", "7", "8", "9", "✖", "4","5","6", "➖", "1", "2", "3", "➕","0", ".", "🟰"));
+        int numRows = 5;    // y
+        int numCols = 4;    // x
+        int buttonIndex = 0;    // 按鈕指標
+        int buttonSize = buttonList.size();     // 按鈕的數量：由1開始
+        int maxButtonsPerRow = 4;   // 每行最多的按鈕數量
 
+        // 添加顯示組件
+        textFieldConstraints.gridx = 0;
+        textFieldConstraints.gridy = 0;
+        textFieldConstraints.gridwidth = 4;
+        mainContainer.add(new JTextField("I am text"), textFieldConstraints);
+
+        // 添加按钮
+        for (int row = 1; row <= numRows; row++) {
+            for (int col = 1; col <= numCols; col++) {
+                if (buttonIndex < buttonSize) {
+                    String buttonName = buttonList.get(buttonIndex);
+                    JButton button = new JButton(buttonName);
+                    int x = (buttonIndex % maxButtonsPerRow) + 1;
+                    int y = (buttonIndex / maxButtonsPerRow) + 1;
+
+                    if (x == 1 && y == 5){
+                        GridBagConstraints buttonZeroConstraint = new GridBagConstraints();
+                        buttonsConstraints.gridx = x;
+                        buttonsConstraints.gridy = y;
+                        buttonZeroConstraint.gridwidth = 2;
+                        buttonZeroConstraint.gridheight = 1;
+                        buttonZeroConstraint.fill = GridBagConstraints.HORIZONTAL;
+                        mainContainer.add(button, buttonZeroConstraint);
+                    }
+                    if (x == 2 && y == 5 || x == 3 && y == 5) {
+                        x += 1;
+                    }
+                    buttonsConstraints.gridx = x;    // return 0 1 2 3 0 1 2 3 0 1 2 3...
+                    buttonsConstraints.gridy = y;    // return 1111 2222 3333 4444 5555
+                    mainContainer.add(button, buttonsConstraints);
+                    System.out.println("(" + x + "," + y + ")");
+
+                    buttonIndex++;
+
+                }
+            }
+        }
     }
     public static void main(String[] args) {
         Main demo = new Main();
