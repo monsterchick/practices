@@ -6,34 +6,37 @@ import java.util.List;
 
 public class Main {
     JFrame jFrame = new JFrame(); // 主容器
-    JPanel mainPanel = new JPanel(); // 主窗體
-    JPanel displayPanel;
-    JPanel buttonPanel;
+    JPanel mainPanel; // 主窗體
     void createFrame(){
         jFrame.setTitle("Calculator");
-        jFrame.setSize(330,330);
-        jFrame.setResizable(false);
+        jFrame.setSize(330,380);
         jFrame.setLocationRelativeTo(null);
         jFrame.setLayout(new GridBagLayout()); // 採用網格組佈局
+        mainPanel = new JPanel();
+        jFrame.add(mainPanel);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        mainPanel.setPreferredSize(new Dimension(290, 220));
     }
 
     void createDisplay(){
-        displayPanel = new JPanel(new GridBagLayout());
+        JPanel displayPanel = new JPanel(new GridBagLayout());
         GridBagConstraints displayConstraints = new GridBagConstraints();
-        JTextField textField = new JTextField("");
-        textField.setPreferredSize(new Dimension(295,60));
-//        displayPanel.setBackground(new Color(255,192,203));
+        JTextField textField = new JTextField("test");
+        displayPanel.setBackground(Color.blue);
+        displayConstraints.gridx = 1;
+        displayConstraints.gridy = 1;
+        displayConstraints.gridwidth = 2;
+//        displayConstraints.gridheight = 2;
+        displayConstraints.fill = GridBagConstraints.VERTICAL;
         displayPanel.add(textField, displayConstraints);
         mainPanel.add(displayPanel);
     }
 
     void createButton(){
-        buttonPanel = new JPanel(new GridBagLayout());
+        JPanel buttonPanel = new JPanel(new GridBagLayout());
+//        buttonPanel.setBackground(Color.blue);
         GridBagConstraints buttonConstraints = new GridBagConstraints();
         List<String> buttonList = new ArrayList<>(Arrays.asList("AC", "+/-", "%", "➗", "7", "8", "9", "✖", "4","5","6", "➖", "1", "2", "3", "➕","0", ".", "🟰"));
-        int numRows = 8;    // y
+        int numRows = 5;    // y
         int numCols = 4;    // x
         int buttonIndex = 0;    // 按鈕指標
         int buttonSize = buttonList.size();     // 按鈕的數量：由1開始
@@ -65,16 +68,14 @@ public class Main {
                     buttonConstraints.gridx = x;    // return 0 1 2 3 0 1 2 3 0 1 2 3...
                     buttonConstraints.gridy = y;    // return 1111 2222 3333 4444 5555
                     buttonPanel.add(button, buttonConstraints);
-                    mainPanel.add(buttonPanel);
+
                     System.out.println("(" + x + "," + y + ")");
                     buttonIndex++;
                 }
             }
         }
-    GridBagConstraints constraints = new GridBagConstraints();
-//    mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-//    mainPanel.setBackground(new Color(255,192,203));
-
+    mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+    mainPanel.add(buttonPanel);
     jFrame.add(mainPanel);
     }
     public static void main(String[] args) {
@@ -82,7 +83,7 @@ public class Main {
         demo.createFrame();
         demo.createDisplay();
         demo.createButton();
-//        demo.jFrame.pack();
+        demo.jFrame.pack();
         demo.jFrame.setVisible(true);
     }
 }
