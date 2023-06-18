@@ -5,19 +5,19 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
-    JFrame jframe = new JFrame(); // 主容器
+    JFrame jf = new JFrame(); // 主容器
     Container mainContainer; // 主窗體
     void createFrame(){
-        jframe.setTitle("Calculator");
-        jframe.setSize(330,380);
-        jframe.setLocationRelativeTo(null);
-        mainContainer = jframe.getContentPane();
-        mainContainer.setLayout(new GridBagLayout()); // 採用網格組佈局
-        jframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jf.setTitle("Calculator");
+        jf.setSize(330,380);
+        jf.setLocationRelativeTo(null);
+        jf.getContentPane();
+        jf.setLayout(new GridBagLayout()); // 採用網格組佈局
+        jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     void init(){
-        GridBagConstraints textFieldConstraints = new GridBagConstraints();
+        GridBagConstraints displayConstraint = new GridBagConstraints();
         GridBagConstraints buttonsConstraints = new GridBagConstraints();
         List<String> buttonList = new ArrayList<>(Arrays.asList("AC", "+/-", "%", "➗", "7", "8", "9", "✖", "4","5","6", "➖", "1", "2", "3", "➕","0", ".", "🟰"));
         int numRows = 5;    // y
@@ -26,12 +26,17 @@ public class Main {
         int buttonSize = buttonList.size();     // 按鈕的數量：由1開始
         int maxButtonsPerRow = 4;   // 每行最多的按鈕數量
 
+        JTextField display;
+
         // 添加顯示組件
-        textFieldConstraints.gridx = 0;
-        textFieldConstraints.gridy = 0;
-        textFieldConstraints.gridwidth = 4;
-        textFieldConstraints.fill = GridBagConstraints.BOTH;
-        mainContainer.add(new JTextField("I am text"), textFieldConstraints);
+        displayConstraint.gridx = 0;
+        displayConstraint.gridy = 0;
+        displayConstraint.gridwidth = 4;
+        displayConstraint.ipadx = 10;
+        displayConstraint.ipady = 2;
+        display = new JTextField("");
+        display.setEnabled(true);
+        mainContainer.add(display, BorderLayout.NORTH);
 
         // 添加按钮
         for (int row = 1; row <= numRows; row++) {
@@ -69,6 +74,6 @@ public class Main {
         Main demo = new Main();
         demo.createFrame();
         demo.init();
-        demo.jframe.setVisible(true);
+        demo.jf.setVisible(true);
     }
 }
