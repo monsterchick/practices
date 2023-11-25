@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+
+        <h1>插值语法</h1>
+        <h3>你好，{{ name }} will go to {{addr}}</h3>
+        <!-- 分割线 -->
+        <hr/> 
+
+        <h1>指令语法</h1>
+        <a v-bind:href="vb_info.url" class="href">{{vb_info.name}}用法: {{vb_info.url}}, {{vb_info.usage}}</a>
+        <!-- v-bind: 可以简写为 : -->
+        <br>
+        <a :href="yt_info.addr" class="href">去油管</a>
+        <br>
+        <h2>欢迎来到 {{yt_info.name}}</h2><br>
+        <a :href="yt_info.addr" class="href">这是多层级: 网址：{{yt_info.addr}}</a><br>
+        <p>描述：{{yt_info.desc}}</p>
+
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false // 取消提示
+
+        new Vue({
+            el:'#root',
+            data:{
+                name:'jack',
+                addr: 'www.youtube.com',
+                vb_info:{
+                    name:'v-bind',
+                    usage:'"v-bind:attribute" or ":attribute"',
+                    url: 'https://vuejs.org/'
+                },
+                yt_info:{
+                    name:'youtube',
+                    addr:'https://www.youtube.com/',
+                    desc:'YouTube is a free video sharing website that makes it easy to watch online videos. You can even create and upload your own videos to share with others. Originally created in 2005, YouTube is now one of the most popular sites on the Web, with visitors watching around 6 billion hours of video every month.'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+<!-- 
+    插值语法{{}}用于标签体,例如：
+    <h1>插值语法</h1>
+    <h3>你好，{{ name }}</h3>
+    <h1>指令语法</h1> 
+
+    指令语法用于管理属性attribute，例如
+    <div id="root">
+    指令语法能解析标签，包括标签属性，标签体内容，绑定事件
+-->

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+<body>
+    <!-- 这是容器 -->
+    <div id="root">
+        <h1>hello, {{ name }}</h1>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false // 取消提示
+
+        // el的两种写法
+        // vue 实例
+        // const x = new Vue({
+        //     // el: '#root', // 第一种写法
+        //     data: {
+        //         name: "大锤"
+        //     }
+        // })
+        // console.log(x)
+
+        // el的第二种方法：指定容器 这种方法灵活一点
+        // x.$mount('#root') 
+
+        // data的两种写法
+        const y = new Vue({
+            el: '#root',
+            // data: {
+            //     name:'data的第一种写法: 对象式'
+            // }
+
+        // data:function(){ 
+        //     console.log('@@@',this) //此处的this 是vue实例本身
+        //     return{
+        //         name:'data的第二种写法--函数式,用组件的时候必须用这种方式'
+        //     }
+        // }
+
+        data(){ //一般在对象里面写function都直接省略名字和冒号
+            console.log('@@@',this) //此处的this 是vue实例本身
+            return{
+                name:'data的第二种写法--函数式,用组件的时候必须用这种方式'
+            }
+        }
+
+
+        })
+    </script>
+</body>
+</html>
+
+<!-- 
+    el的两种写法：
+    1.
+    const x = new Vue({
+    el: '#root', // 第一种写法
+    data: {
+        name: "大锤"
+    }
+    2.
+    x.$mount('#root') 用实例挂载
+
+    data的两种写法：
+    1.
+    const x = new Vue({
+    el: '#root', // 第一种写法
+    data: {
+        name: "大锤"
+    }
+    2.
+    data:function(){
+        return{
+            name:'第二种data写法'
+        }
+    }
+
+    vue 管理了很多函数， data是其中一个
+
+
+
+
+ -->
